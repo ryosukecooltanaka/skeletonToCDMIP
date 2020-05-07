@@ -7,7 +7,7 @@ used for [color depth MIP mask search](https://www.janelia.org/open-science/colo
 ## Preparation
 
 * SWC files can be downloaded from the "Skeleton" view in [neuPrint](https://neuprint.janelia.org/),
-which should be stored by cell types under /swc/<celltype> directories.
+which should be stored by cell types under /swc/whateverCellName directories.
 * To generate color depth MIP compatible images, you need to download the [LUT file](https://github.com/JaneliaSciComp/ColorMIP_Mask_Search/blob/master/PsychedelicRainBow2.lut) from
 the ColorMIP_Mask_Search repository, and save it as psychedelicrainbow.mat containing
 a 256 x 3 matrix called psychedelicrainbow.
