@@ -1,4 +1,4 @@
-function CDMIP = generateColorDepthMIPfromSWC(cellType)
+function CDMIP = generateColorDepthMIPfromSWC(cellType,save)
 
 % Created by Ryosuke Tanaka 05/07/2020
 % The main function that generates Color Depth MIP image from SWC skeleton
@@ -10,6 +10,10 @@ function CDMIP = generateColorDepthMIPfromSWC(cellType)
 % thicker than 0.62um. FlyLight LSM are 1 um, so I am guessing they are 1
 % um thick... might change
 % neuPrint EM data are in 8nm pixel
+
+if nargin < 2
+    save = 2; % 0:no, 1:yes, 2:ask
+end
 
 % these are in 8nm pixels
 cameraPosition = [26000,36000,22000]; % looks at the target along the native depth axis
@@ -63,4 +67,10 @@ CDMIP = uint8(CDMIP);
 figure; imshow(CDMIP);
 
 
+while save>1
+    save = input('Would you like to save this image?: 0 or 1');
+end
+if save==1
+    imwrite(CDMIP,['./tif/',cellType,'_',datestr(now,'yyyymmddHHMMSS'),'.tif']);
+end
 end
